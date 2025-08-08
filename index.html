@@ -5,379 +5,440 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nejamul Haque - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
-    <!-- Loading Animation -->
-    <div id="loader" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center transition-opacity duration-500">
-        <div class="loader-animate">
-            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            <p class="mt-4 text-lg font-medium">Loading Portfolio...</p>
-        </div>
-    </div>
-    <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50 dark:bg-gray-800/80">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold gradient-text">Nejamul Haque</a>
-                
-                <div class="flex items-center space-x-6">
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="#skills" class="hover:text-blue-500 transition">Skills</a>
-                        <a href="#certifications" class="hover:text-blue-500 transition">Certifications</a>
-                        <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
-                        <a href="#experience" class="hover:text-blue-500 transition">Experience</a>
-                        <a href="#education" class="hover:text-blue-500 transition">Education</a>
-                        <a href="#about" class="hover:text-blue-500 transition">About</a>
-                        <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
-                    </nav>
-                    
-                    <buttonbutton id="theme-toggle" title="Toggle dark mode" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 shadow-md hover:shadow-lg">
-                        <i class="fas fa-moon dark:hidden text-gray-700"></i>
-                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
-                    </button>
-                    
-                    <buttonbutton id="mobile-menu-button" title="Open mobile menu" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                        <i class="fas fa-bars"></i>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed right-4 top-4 z-50 p-2 rounded-full bg-indigo-600 text-white shadow-lg" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-40 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">Nejamul Haque</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Skills</a>
+                    <a href="#certifications" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Certifications</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Projects</a>
+                    <a href="#experience" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Experience</a>
+                    <a href="#education" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Education</a>
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 dark:text-gray-300" aria-label="Toggle mobile menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
-            
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                <a href="#skills" class="block py-2 hover:text-blue-500 transition">Skills</a>
-                <a href="#certifications" class="block py-2 hover:text-blue-500 transition">Certifications</a>
-                <a href="#projects" class="block py-2 hover:text-blue-500 transition">Projects</a>
-                <a href="#experience" class="block py-2 hover:text-blue-500 transition">Experience</a>
-                <a href="#education" class="block py-2 hover:text-blue-500 transition">Education</a>
-                <a href="#about" class="block py-2 hover:text-blue-500 transition">About</a>
-                <a href="#contact" class="block py-2 hover:text-blue-500 transition">Contact</a>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#skills" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Skills</a>
+                <a href="#certifications" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Certifications</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Experience</a>
+                <a href="#education" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Education</a>
+                <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">About</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition duration-300">Contact</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text typing-text">Nejamul Haque</span></h1>
-                <h2 class="text-2xl md:text-3xl mb-6 text-gray-600 dark:text-gray-300">
-                    <span class="typing-text" data-words='["A Passionate Developer", "A Problem Solver", "A Tech Enthusiast"]'></span>
-                </h2>
-                <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">I build modern, interactive web experiences with Java, C++, Python and many more.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-200 btn-3d">View My Work</a>
-                    <a href="https://nejamulportfolio.vercel.app/Resume.pdf" class="px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 dark:hover:bg-gray-800 transition-all duration-200 btn-3d">Download Resume</a>
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-indigo-400">Nejamul Haque</span></h1>
+                    <h2 class="text-2xl md:text-4xl font-semibold mb-6 typewriter">A Passionate Developer</h2>
+                    <p class="text-lg md:text-xl mb-8 max-w-lg">I build modern, interactive web experiences with Java, C++, Python and many more.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#projects" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium transition duration-300 text-center">View My Work</a>
+                        <a href="https://nejamulportfolio.vercel.app/Resume.pdf" class="px-6 py-3 border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg font-medium transition duration-300 text-center">Download Resume</a>
+                    </div>
                 </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center fade-in delay-1">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl transform transition-transform duration-500 hover:rotate-3 hover:scale-105">
-                    <img src="https://nejamulportfolio.vercel.app/nejamul.jpg" alt="Nejamul Haque" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
+                <div class="flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <img src="nejamul.jpg" alt="Nejamul Haque" class="rounded-full border-4 border-indigo-500 w-full h-full object-cover floating">
+                        <div class="absolute -bottom-2 -right-2 bg-indigo-600 rounded-full p-3 animate-pulse">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-20 bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Certifications</h2>
+    <section id="certifications" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Certification Card 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-1">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-certificate text-blue-600 dark:text-blue-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Deloitte Australia Technology Job Simulation</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Forage | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a job simulation.</p>
-                        <a href="https://nejamulportfolio.vercel.app/Deloite.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 1 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Deloitte Australia Technology Job Simulation</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Forage | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a job simulation.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Deloite.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
                 
-                <!-- Certification Card 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-2">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-brain text-purple-600 dark:text-purple-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Artificial Intelligence Certificate</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Infosys Springboard | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on Artificial Intelligence.</p>
-                        <a href="https://nejamulportfolio.vercel.app/Ai%20Certificate.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 2 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Artificial Intelligence Certificate</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Infosys Springboard | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on Artificial Intelligence.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Ai%20Certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
                 
-                <!-- Certification Card 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-3">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-leaf text-green-600 dark:text-green-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Watershed Development</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Government of India | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on Watershed Yatra.</p>
-                        <a href="https://nejamulportfolio.vercel.app/Completion%20Certificate.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 3 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Watershed Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Government of India | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on Watershed Yatra.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Completion%20Certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
                 
-                <!-- Certification Card 4 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-1">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-bullhorn text-yellow-600 dark:text-yellow-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">AI Bootcamp – for Marketing</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Infosys Springboard | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on AI Bootcamp for Marketing.</p>
-                        <a href="https://nejamulportfolio.vercel.app/Ai%20Marketing.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 4 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">AI Bootcamp – for Marketing</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Infosys Springboard | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Completed a Course on AI Bootcamp for Marketing.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Ai%20Marketing.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
                 
-                <!-- Certification Card 5 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-2">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-red-100 dark:bg-red-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-chart-line text-red-600 dark:text-red-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">GenAI Powered Data Analytics</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">TATA Group | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Data Analytics Completion Certificate</p>
-                        <a href="https://nejamulportfolio.vercel.app/Tata%20AI%20Certificate.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 5 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">GenAI Powered Data Analytics</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">TATA Group | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Data Analytics Completion Certificate.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Tata%20AI%20Certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
                 
-                <!-- Certification Card 6 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-3">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-laptop-code text-indigo-600 dark:text-indigo-300 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Software Engineering</h3>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">Hewlett Packard Enterprise | 2025</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-4">Software Engineering Job Simulation</p>
-                        <a href="https://nejamulportfolio.vercel.app/Hewlett%20Packard%20Certificate.pdf" class="text-blue-600 dark:text-blue-400 hover:underline">View Certificate</a>
-                    </div>
+                <!-- Certification 6 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Software Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Hewlett Packard Enterprise | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Software Engineering Job Simulation.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Hewlett%20Packard%20Certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 7 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Software Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Accenture | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Software Engineering Job Simulation.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Accenture%20Certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 8 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Python Programming</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">YBI Foundation | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Python Programming Course Completion Certificate.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Python%20Programming.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 9 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">IoT-Network Specialist</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Reliance Foundation Skilling Academy | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">IoT-Network Specialist Certificate.</p>
+                    <a href="https://nejamulportfolio.vercel.app/IOT%20certificate.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 10 -->
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md transition duration-300 certification-card border-l-4 border-transparent">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Introduction to Generative AI</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Google Cloud | 2025</p>
+                    <p class="text-gray-700 dark:text-gray-200 mb-4">Introduction to Generative AI Certificate.</p>
+                    <a href="https://nejamulportfolio.vercel.app/Generative%20AI.pdf" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                        View Certificate <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">My Skills</h2>
+    <section id="skills" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                <!-- Skill 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-1">
+                <!-- Java -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold mb-2">Java</h3>
-                    <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                        <div class="bg-blue-600 h-2.5 rounded-full animate-progress" style="width: 90%"></div>
-                    </div>
-                    <span class="text-xs mt-1 text-gray-500 dark:text-gray-400">90%</span>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Java</h3>
                 </div>
                 
-                <!-- Skill 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-2">
+                <!-- C -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">C</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">C</h3>
                 </div>
                 
-                <!-- Skill 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-3">
+                <!-- C++ -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">C++</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">C++</h3>
                 </div>
                 
-                <!-- Skill 4 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-1">
+                <!-- Python -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Python</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Python</h3>
                 </div>
                 
-                <!-- Skill 5 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-2">
+                <!-- HTML5 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">HTML5</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">HTML5</h3>
                 </div>
                 
-                <!-- Skill 6 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-3">
+                <!-- CSS3 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">CSS3</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">CSS3</h3>
                 </div>
                 
-                <!-- Skill 7 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-1">
+                <!-- JavaScript -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">JavaScript</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">JavaScript</h3>
                 </div>
                 
-                <!-- Skill 8 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-2">
+                <!-- MongoDB -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">MongoDB</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">MongoDB</h3>
                 </div>
                 
-                <!-- Skill 9 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-3">
+                <!-- Ruby -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Ruby</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Ruby</h3>
                 </div>
                 
-                <!-- Skill 10 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-1">
+                <!-- PHP -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">PHP</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">PHP</h3>
                 </div>
                 
-                <!-- Skill 11 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-2">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MYSQL" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">MYSQL</h3>
+                <!-- MySQL -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="w-16 h-16 mb-4">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">MySQL</h3>
                 </div>
                 
-                <!-- Skill 12 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-3">
+                <!-- Blender -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" alt="Blender" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Blender</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Blender</h3>
                 </div>
                 
-                <!-- Skill 13 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-1">
+                <!-- Canva -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Canva</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Canva</h3>
                 </div>
                 
-                <!-- Skill 14 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-2">
+                <!-- Linux -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex_col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Linux</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Linux</h3>
                 </div>
                 
-                <!-- Skill 15 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex flex-col items-center transition-all duration-300 card-hover fade-in delay-3">
+                <!-- Nodejs -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Nodejs" class="w-16 h-16 mb-4">
-                    <h3 class="font-semibold">Nodejs</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Nodejs</h3>
+                </div>
+                
+                <!-- Flutter -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center transition duration-300 skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter" class="w-16 h-16 mb-4">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Flutter</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-6 fade-in">My Projects</h2>
-            <div class="flex justify-center mb-8 gap-2 flex-wrap fade-in">
-                <button class="px-4 py-2 rounded-full bg-blue-600 text-white filter-btn active" data-filter="all">All</button>
-                <button class="px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 filter-btn" data-filter="web">Web</button>
-                <button class="px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 filter-btn" data-filter="ai">AI</button>
-                <button class="px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 filter-btn" data-filter="tools">Tools</button>
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-1" data-filter="web">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://cdn1.iconfinder.com/data/icons/development-3/91/SEODevelopment__Marketing_114-128.png" alt="Personal Website" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://cdn1.iconfinder.com/data/icons/development-3/91/SEODevelopment__Marketing_114-128.png" alt="Portfolio Website" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Personal Website</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Personal Website</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">A personal Website built with HTML, CSS, JavaScript showcasing my skills and contact features.</p>
-                        <a href="https://haque-and-sons.vercel.app/" class="text-blue-600 dark:text-blue-400 hover:underline">View Project</a>
+                        <a href="https://haque-and-sons.vercel.app/" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-2" data-filter="ai">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://cdn2.iconfinder.com/data/icons/metaverse-flat-5/60/Robot-Assistant-Meta-ai-bot-128.png" alt="AI Voice Assistant" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://cdn2.iconfinder.com/data/icons/metaverse-flat-5/60/Robot-Assistant-Meta-ai-bot-128.png" alt="AI Voice Assistant" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">AI Voice Assistant</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">AI Voice Assistant</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">A Python-based AI voice assistant using pyttsx3 and speech recognition for intelligent tasks.</p>
                         <div class="mb-4">
-                            <h4 class="font-medium mb-2">Features:</h4>
-                            <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-300">
-                                <li>Weather updates</li>
-                                <li>Search YouTube</li>
-                                <li>Play music</li>
-                                <li>Set reminders</li>
-                                <li>Answer questions</li>
-                                <li>Control system volume</li>
-                                <li>Open applications</li>
-                                <li>Tell jokes</li>
-                                <li>Provide news updates</li>
+                            <h4 class="font-medium text-gray-700 dark:text-gray-200 mb-2">Features:</h4>
+                            <ul class="text-gray-600 dark:text-gray-300 text-sm">
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Weather updates</li>
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Search YouTube</li>
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Play music</li>
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Set reminders</li>
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Answer questions</li>
+                                <li class="mb-1 flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Control system volume</li>
                             </ul>
-                        </div>
-                        <div class="bg-gray-100 dark:bg-gray-600 p-3 rounded-lg text-center text-sm italic">
-                            <p>Python Voice Assistant Demo</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-3">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/35-128.png" alt="Login System" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/35-128.png" alt="Login System" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Login System</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Login System</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">A secure login system with Node.js, MongoDB, bcrypt encryption and frontend validation.</p>
-                        <a href="https://haqueandsons.vercel.app/loginpage.html" class="text-blue-600 dark:text-blue-400 hover:underline">View Project</a>
+                        <a href="https://haqueandsons.vercel.app/loginpage.html" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-1">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://cdn1.iconfinder.com/data/icons/business-finance-vol-3-39/512/cv_resume_job_application-128.png" alt="AI Resume Builder" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://cdn1.iconfinder.com/data/icons/business-finance-vol-3-39/512/cv_resume_job_application-128.png" alt="Resume Builder" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">AI Resume Builder</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">A resume builder with HTML, CSS, JavaScript and Node.js integrated with Artificial Intelligence</p>
-                        <a href="https://resume-builder-alpha-puce.vercel.app/" class="text-blue-600 dark:text-blue-400 hover:underline">View Project</a>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">AI Resume Builder</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A resume builder with HTML, CSS, JavaScript and Node.js integrated with Artificial Intelligence.</p>
+                        <a href="https://resume-builder-alpha-puce.vercel.app/" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 5 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-2">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://play-lh.googleusercontent.com/WQqb62wAATnxR8jGsECCUVluKUc9-5pKaX9IfTZywsG_815L0OHOtxgzFeK5ylD-Obts=w480-h960-rw" alt="Expense Tracker" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://play-lh.googleusercontent.com/WQqb62wAATnxR8jGsECCUVluKUc9-5pKaX9IfTZywsG_815L0OHOtxgzFeK5ylD-Obts=w480-h960-rw" alt="Expense Tracker" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Expense Tracker</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Expense Tracker</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">A expense tracker with HTML, CSS, JavaScript and Node.js.</p>
-                        <a href="https://github.com/NejamulHaque/Expences-Tracker" class="text-blue-600 dark:text-blue-400 hover:underline">View Project</a>
+                        <a href="https://github.com/NejamulHaque/Expences-Tracker" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Project 6 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md transition-all duration-300 card-hover fade-in delay-3">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://dashthis.com/media/3061/google_analytics.png" alt="ADmyBrand-dashboard" class="h-32 w-32 object-contain">
+                    </div>
                     <div class="p-6">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://play-lh.googleusercontent.com/afndCHjYUyjgegJfTwrVY3EdAuCvCZ9qbiJLqbT7cpm7xJmvS-yq4bzW8mNPE0Hwvi_i=w5120-h2880-rw" alt="Calculator" class="w-24 h-24">
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Calculator with Currency Converter</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">A calculator with currency converter with HTML, CSS, JavaScript and Node.js.</p>
-                        <a href="https://github.com/NejamulHaque/Calculator" class="text-blue-600 dark:text-blue-400 hover:underline">View Project</a>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">ADmyBrand-dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">ADmyBRAND Insights is a modern, responsive analytics dashboard built for digital marketers and agencies.</p>
+                        <a href="https://github.com/NejamulHaque/admybrand-dashboard" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="https://bastikipathshala.org/wp-content/uploads/2024/02/Basti-Ki-Pathshala-Official-Logo.jpg" alt="Basti Ki Pathshala" class="h-32 w-32 object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Basti Ki Pathshala</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Flutter & Dart → For building a cross-platform mobile app (Android & iOS) with a clean and responsive UI.</p>
+                        <a href="https://github.com/NejamulHaque/basti_ki_pathshala" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="Portfolio_builder.jpg" alt="Portfolio Builder with AI" class="h-32 w-32 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Portfolio Builder with AI</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Create your own professional portfolio website in minutes using this AI-powered Portfolio Builder.</p>
+                        <a href="https://portfolio-builder-ruby-alpha.vercel.app/" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300 project-card">
+                    <div class="p-4 h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
+                        <img src="Quick_Eats.jpg" alt="Food Delivery Online" class="h-32 w-32 object-cover"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Food Delivery Online</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Quick Eats is a food delivery platform that allows users to order food from various restaurants quickly and easily.</p>
+                        <a href="https://food-delivery-navy-gamma.vercel.app/" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -385,49 +446,48 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Experience</h2>
+    <section id="experience" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
             
-            <div class="max-w-3xl mx-auto space-y-8">
-                <!-- Experience 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-1">
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-code text-blue-600 dark:text-blue-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Web Developer Intern</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Haque and Sons | 2024</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Built responsive websites using HTML, CSS, JavaScript. Integrated APIs and optimized performance.</p>
+            <div class="relative">
+                <!-- Timeline bar -->
+                <div class="hidden md:block absolute left-8 top-0 h-full w-1 bg-indigo-200 dark:bg-gray-600 transform -translate-x-1/2"></div>
+                
+                <div class="space-y-8">
+                    <!-- Experience 1 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="timeline-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Web Developer Intern</h3>
+                            <div class="flex items-center text-gray-600 dark:text-gray-300 mb-4">
+                                <span>Haque and Sons | 2024</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-200">Built responsive websites using HTML, CSS, JavaScript. Integrated APIs and optimized performance.</p>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Experience 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-2">
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-robot text-purple-600 dark:text-purple-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">AI Chatbot Developer</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Freelance | 2024</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Built an AI voice assistant using Python and APIs like pyttsx3, OpenWeather, YouTube.</p>
+                    
+                    <!-- Experience 2 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="timeline-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">AI Chatbot Developer</h3>
+                            <div class="flex items-center text-gray-600 dark:text-gray-300 mb-4">
+                                <span>Freelance | 2024</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-200">Built an AI voice assistant using Python and APIs like pyttsx3, OpenWeather, YouTube.</p>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Experience 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-3">
-                    <div class="flex items-start">
-                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-briefcase text-green-600 dark:text-green-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Deloitte Australia Technology Job Simulation on Forage</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Forage | 2025</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Completed a job simulation on Forage platform.</p>
+                    
+                    <!-- Experience 3 -->
+                    <div class="relative pl-12 md:pl-16">
+                        <div class="timeline-item bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Deloitte Australia Technology Job Simulation on Forage</h3>
+                            <div class="flex items-center text-gray-600 dark:text-gray-300 mb-4">
+                                <span>Forage | 2025</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-200">Completed a job simulation on Forage platform.</p>
                         </div>
                     </div>
                 </div>
@@ -436,264 +496,195 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Education</h2>
+    <section id="education" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
             
-            <div class="max-w-3xl mx-auto space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Education 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-1">
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Bachelor in Computer Science</h3>
-                            <p class="text-gray-600 dark:text-gray-300">2023 – Present</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Teerthanker Mahaveer University Moradabad, UP</p>
-                        </div>
-                    </div>
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">2023 – Present</h3>
+                    <h4 class="text-lg font-medium text-indigo-600 dark:text-indigo-400 mb-2">Bachelor in Computer Science</h4>
+                    <p class="text-gray-600 dark:text-gray-300">Teerthanker Mahaveer University Moradabad, UP</p>
                 </div>
                 
                 <!-- Education 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-2">
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-school text-purple-600 dark:text-purple-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Higher Secondary (12th Grade)</h3>
-                            <p class="text-gray-600 dark:text-gray-300">2023</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Bihar State Education Board, Patna</p>
-                        </div>
-                    </div>
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">2023</h3>
+                    <h4 class="text-lg font-medium text-indigo-600 dark:text-indigo-400 mb-2">Higher Secondary (12th Grade)</h4>
+                    <p class="text-gray-600 dark:text-gray-300">Bihar State Education Board, Patna</p>
                 </div>
                 
                 <!-- Education 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-all duration-300 card-hover fade-in delay-3">
-                    <div class="flex items-start">
-                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-book text-green-600 dark:text-green-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Secondary (10th Grade)</h3>
-                            <p class="text-gray-600 dark:text-gray-300">2021</p>
-                            <p class="text-gray-700 dark:text-gray-200 mt-2">Bihar State Education Board, Patna</p>
-                        </div>
-                    </div>
+                <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">2021</h3>
+                    <h4 class="text-lg font-medium text-indigo-600 dark:text-indigo-400 mb-2">Secondary (10th Grade)</h4>
+                    <p class="text-gray-600 dark:text-gray-300">Bihar State Education Board, Patna</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">About Me</h2>
+    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
             
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover fade-in delay-1">
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">About Me</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                            <i class="fas fa-user-circle text-indigo-600 mr-3"></i> About Me
+                        </h3>
+                    </div>
                     <p class="text-gray-700 dark:text-gray-300 mb-6">
-                        I'm <strong>Nejamul Haque</strong>, a highly motivated and growth-oriented Computer Science student with a strong foundation in software development and a deep passion for building innovative, user-centric digital experiences. Currently pursuing my Bachelor's degree at Teerthanker Mahaveer University, I have immersed myself in modern development technologies and real-world projects that span across both frontend and backend domains.
+                        I'm <strong class="text-indigo-600 dark:text-indigo-400">Nejamul Haque</strong>, a highly motivated and growth-oriented Computer Science student with a strong foundation in software development and a deep passion for building innovative, user-centric digital experiences. Currently pursuing my Bachelor's degree at Teerthanker Mahaveer University, I have immersed myself in modern development technologies and real-world projects that span across both frontend and backend domains.
                     </p>
-                    
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Technical Proficiency</h3>
                     <p class="text-gray-700 dark:text-gray-300 mb-6">
-                        My journey began with a curiosity for how technology shapes the world around us, which soon evolved into a disciplined pursuit of mastering programming languages such as <strong>Java, Python, C, C++, HTML, CSS, JavaScript, and PHP</strong>, as well as tools like <strong>MongoDB, Node.js, and React</strong>. I've built full-fledged web applications, AI-based voice assistants, and secure login systems—each project sharpening my understanding of user experience, code optimization, and scalable architectures.
+                        My journey began with a curiosity for how technology shapes the world around us, which soon evolved into a disciplined pursuit of mastering programming languages such as <strong class="text-indigo-600 dark:text-indigo-400">Java, Python, C, C++, HTML, CSS, JavaScript, and PHP</strong>, as well as tools like <strong class="text-indigo-600 dark:text-indigo-400">MongoDB, Node.js, and React</strong>.
                     </p>
-                    
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Development Philosophy</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mb-6">
-                        I'm not only passionate about writing clean, maintainable code, but also about understanding user behavior to deliver practical and engaging solutions. Whether it's automating daily tasks through AI, designing responsive interfaces, or developing secure backend systems, I strive to deliver products that are both technically sound and intuitively designed.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Vision & Goals</h3>
                     <p class="text-gray-700 dark:text-gray-300">
-                        Beyond coding, I consistently upgrade my skills by participating in virtual internships, completing industry-led simulations, and exploring interdisciplinary tech applications such as AI in marketing and sustainable technologies. My ultimate goal is to become a proficient <strong>full-stack developer</strong>, contribute to impactful open-source projects, and one day lead a team of developers solving real-world problems through technology. I'm committed to lifelong learning and passionate about using code as a tool to innovate, improve lives, and leave a lasting impact.
+                        Beyond coding, I consistently upgrade my skills by participating in virtual internships, completing industry-led simulations, and exploring interdisciplinary tech applications such as AI in marketing and sustainable technologies.
                     </p>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                                <i class="fas fa-code text-indigo-600 mr-3"></i> Technical Proficiency
+                            </h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            I've built full-fledged web applications, AI-based voice assistants, and secure login systems—each project sharpening my understanding of user experience, code optimization, and scalable architectures.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                                <i class="fas fa-lightbulb text-indigo-600 mr-3"></i> Development Philosophy
+                            </h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            I'm not only passionate about writing clean, maintainable code, but also about understanding user behavior to deliver practical and engaging solutions. Whether it's automating daily tasks through AI, designing responsive interfaces, or developing secure backend systems, I strive to deliver products that are both technically sound and intuitively designed.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+                                <i class="fas fa-bullseye text-indigo-600 mr-3"></i> Vision & Goals
+                            </h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            My ultimate goal is to become a proficient <strong class="text-indigo-600 dark:text-indigo-400">full-stack developer</strong>, contribute to impactful open-source projects, and one day lead a team of developers solving real-world problems through technology. I'm committed to lifelong learning and passionate about using code as a tool to innovate, improve lives, and leave a lasting impact.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Contact Me</h2>
+    <section id="contact" class="py-20 bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+            </div>
             
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md transition-all duration-300 card-hover fade-in delay-1">
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Get In Touch</h3>
-                    <form class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Let's Connect!</h3>
+                    <p class="mb-8 text-indigo-100">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <a href="nejamulhaque.05@gmail.com" class="hover:underline">nejamulhaque.05@gmail.com</a>
+                            </div>
                         </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800">
+                        
+                        <div class="flex items-center">
+                            <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">GitHub</p>
+                                <a href="https://github.com/NejamulHaque" class="hover:underline">github.com/NejamulHaque</a>
+                            </div>
                         </div>
-                        <div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-white bg-opacity-20 rounded-full p-3 mr-4">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">LinkedIn</p>
+                                <a href="#" class="hover:underline">linkedin.com/in/nejamulhaque</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send me a message</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-4">
                             <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800"></textarea>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"></textarea>
                         </div>
-                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 btn-3d w-full">Send Message</button>
+                        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300">Send Message</button>
                     </form>
                 </div>
-                
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md transition-all duration-300 card-hover fade-in delay-2">
-                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Connect With Me</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-center">
-                            <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-blue-600 dark:text-blue-300"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 dark:text-gray-300">Email</p>
-                                <a href="nejamulhaque.05@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">contact us</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
-                                <i class="fab fa-linkedin text-green-600 dark:text-green-300"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 dark:text-gray-300">LinkedIn</p>
-                                <a href="https://www.linkedin.com/in/nejamulhaque/" class="text-blue-600 dark:text-blue-400 hover:underline">Nejamul Haque</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
-                                <i class="fab fa-github text-purple-600 dark:text-purple-300"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 dark:text-gray-300">GitHub</p>
-                                <a href="https://github.com/NejamulHaque/" class="text-blue-600 dark:text-blue-400 hover:underline">Nejamul Haque</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <div class="bg-red-100 dark:bg-red-900 p-3 rounded-full mr-4">
-                                <i class="fas fa-globe text-red-600 dark:text-red-300"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 dark:text-gray-300">Website</p>
-                                <a href="https://haque-and-sons.vercel.app/" class="text-blue-600 dark:text-blue-400 hover:underline">haque And Sons</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://x.com/Nejamul_Haque_" title="Follow me on Twitter/X" class="bg-gray-200 dark:bg-gray-600 p-3 rounded-full hover:bg-blue-500 hover:text-white transition">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://www.facebook.com/wonderboynejamul" title="Follow me on Facebook" class="bg-gray-200 dark:bg-gray-600 p-3 rounded-full hover:bg-blue-700 hover:text-white transition">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.instagram.com/neja_mul_" title="Follow me on Instagram" class="bg-gray-200 dark:bg-gray-600 p-3 rounded-full hover:bg-pink-600 hover:text-white transition">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="Comming Soon" title="YouTube channel coming soon" class="bg-gray-200 dark:bg-gray-600 p-3 rounded-full hover:bg-red-600 hover:text-white transition">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">What People Say</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg transition-all duration-300 card-hover fade-in delay-1">
-                    <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Jonny Mith</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">CEO, Tech Solutions</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 italic">"Nejamul delivered exceptional work on our web project. His attention to detail and problem-solving skills are truly impressive."</p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg transition-all duration-300 card-hover fade-in delay-2">
-                    <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Sinni Ralson</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Product Manager</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 italic">"Working with Nejamul was a pleasure. He understood our requirements perfectly and delivered ahead of schedule."</p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg transition-all duration-300 card-hover fade-in delay-3">
-                    <div class="flex items-center mb-4">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Reacher Dom</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">CTO, Startup Inc</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 italic">"Nejamul's technical expertise and creative solutions helped us overcome complex challenges in our project."</p>
-                    <div class="flex mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6">
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-gray-400">© 2025 Nejamul Haque. All rights reserved.</p>
+                    <span class="text-xl font-bold text-indigo-400">Nejamul Haque</span>
+                    <p class="text-gray-400 mt-1">A Passionate Developer</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                    <a href="https://github.com/NejamulHaque" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nejamulhaque/" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="https://x.com/Nejamul_Haque_" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/neja_mul_" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
                 </div>
             </div>
-            <div class="mt-6 text-center text-gray-500 text-sm">
-                <p>Built with ❤️ and lots of ☕</p>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Nejamul Haque. All rights reserved.</p>
             </div>
         </div>
     </footer>
