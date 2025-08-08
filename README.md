@@ -43,15 +43,15 @@ This website is built to reflect my personality, technical skills, and projects 
 |├── projects.html|
 |├── contact.html|
 |├── css/|
-    └── style.css|
+|   └── style.css|
 |├── js/|
-    └── main.js|
+|   └── main.js|
 |├── assets/|
-    ├── profile.jpg|
-    ├── project_screenshots/|
-    └── icons/|
+|   ├── profile.jpg|
+|    ├── project_screenshots/|
+|    └── icons/|
 |├── resume/|
-    └── Nejamul_Haque_Resume.pdf|
+|   └── Nejamul_Haque_Resume.pdf|
 |└── README.md|
 
 ---
