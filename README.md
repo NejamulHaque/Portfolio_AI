@@ -36,22 +36,23 @@ This website is built to reflect my personality, technical skills, and projects 
 ---
 
 ## 📂 Folder Structure
-portfolio/
-├── index.html
-├── about.html
-├── projects.html
-├── contact.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── assets/
-│   ├── profile.jpg
-│   ├── project_screenshots/
-│   └── icons/
-├── resume/
-│   └── Nejamul_Haque_Resume.pdf
-└── README.md
+|portfolio/|
+|--------------|
+|├── index.html|
+|├── about.html|
+|├── projects.html|
+|├── contact.html|
+|├── css/|
+    └── style.css|
+|├── js/|
+    └── main.js|
+|├── assets/|
+    ├── profile.jpg|
+    ├── project_screenshots/|
+    └── icons/|
+|├── resume/|
+    └── Nejamul_Haque_Resume.pdf|
+|└── README.md|
 
 ---
 
