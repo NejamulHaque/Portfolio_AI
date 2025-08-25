@@ -51,11 +51,19 @@
         });
         
         // Simple form submission (for demonstration)
-        const contactForm = document.querySelector('#contact form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
-                this.reset();
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        emailjs.sendForm("service_daxyxsj", "template_x8l5ph9", this)
+            .then(function () {
+                alert("✅ Message sent successfully!");
+                form.reset();
+            }, function (error) {
+                alert("❌ Failed to send message. Please try again!");
+                console.error("EmailJS Error:", error);
             });
-        }
+    });
+});
